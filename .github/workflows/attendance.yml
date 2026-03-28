@@ -1,0 +1,21 @@
+name: Attendance Automation
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  run-attendance:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+
+    - name: Run Attendance Script
+      run: python attendance_tracker.py
